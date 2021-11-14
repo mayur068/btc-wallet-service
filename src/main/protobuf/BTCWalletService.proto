@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "btc.wallet.proto";
+
+package btcwallet;
+
+// gRPC definition for BTCWalletService
+
+service BTCWalletService {
+    rpc AddMoney (AddMoneyRequest) returns (Wallet) {}
+}
+
+message AddMoneyRequest {
+    string walletId = 1;
+    string transactionId = 2;
+    string transactionDatetime = 3;
+    double transactionAmount = 4;
+}
+
+message Wallet {
+    repeated Transaction transactions = 1;
+}
+
+message Transaction {
+    string transactionId = 1;
+    string transactionDatetime = 2;
+    double transactionAmount = 3;
+}

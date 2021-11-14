@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "btc.wallet.proto";
+
+package btcwallet;
+
+// Events published to Kafka
+
+message TransactionProcessed {
+  string walletId = 1;
+  string transactionId = 2;
+  string transactionDatetime = 3;
+  double transactionAmount = 4;
+}
